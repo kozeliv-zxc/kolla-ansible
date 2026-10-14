@@ -1,6 +1,6 @@
 ---
 - name: Checking docker SDK version
-  ansible.builtin.command: "{{ ansible_facts.python.executable }} -c \"import docker; print(docker.__version__)\""
+  ansible.builtin.command: "{{ ansible_facts.python.executable }} -c \"import docker; from importlib.metadata import version; print(version('docker'))\""
   register: result
   changed_when: false
   check_mode: false
